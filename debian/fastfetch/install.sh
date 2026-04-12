@@ -12,7 +12,7 @@ TARGET_CONFIG="$TARGET_DIR/config.json"
 BASH_LINE='command -v fastfetch >/dev/null 2>&1 && fastfetch --config /etc/fastfetch/config.json'
 
 if [[ "${EUID}" -ne 0 ]] && ! command -v sudo >/dev/null 2>&1; then
-    echo "Erreur: sudo est requis pour installer la configuration systeme." >&2
+    echo "Erreur: sudo est requis pour installer la configuration système." >&2
     exit 1
 fi
 
@@ -26,7 +26,7 @@ run_privileged() {
 
 install_fastfetch() {
     if command -v fastfetch >/dev/null 2>&1; then
-        echo "Fastfetch est deja installe."
+        echo "Fastfetch est déjà installé."
         return 0
     fi
 
@@ -35,7 +35,7 @@ install_fastfetch() {
         run_privileged apt update
         run_privileged apt install -y fastfetch
     else
-        echo "Erreur: gestionnaire de paquets non supporte automatiquement." >&2
+        echo "Erreur: gestionnaire de paquets non supporté automatiquement." >&2
         echo "Installe fastfetch manuellement puis relance ce script." >&2
         exit 1
     fi

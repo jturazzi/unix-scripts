@@ -64,6 +64,7 @@
         {
             "type": "publicip",
             "key": "IP Publique",
+            "format": "{ip}",
             "timeout": 1000
         },
         {
