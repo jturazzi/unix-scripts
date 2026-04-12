@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Exemple d'utilisation (script heberge):
 # bash <(curl -fsSL https://jturazzi.github.io/unix-scripts/debian/fastfetch/install.sh)
 
 set -euo pipefail
@@ -10,7 +9,7 @@ SOURCE_CONFIG="$SCRIPT_DIR/config.json"
 CONFIG_URL="${CONFIG_URL:-https://raw.githubusercontent.com/jturazzi/unix-scripts/main/debian/fastfetch/config.json}"
 TARGET_DIR="/etc/fastfetch"
 TARGET_CONFIG="$TARGET_DIR/config.json"
-BASH_LINE='command -v fastfetch >/dev/null 2>&1 && fastfetch'
+BASH_LINE='command -v fastfetch >/dev/null 2>&1 && fastfetch --config /etc/fastfetch/config.json'
 
 if [[ "${EUID}" -ne 0 ]] && ! command -v sudo >/dev/null 2>&1; then
     echo "Erreur: sudo est requis pour installer la configuration systeme." >&2
